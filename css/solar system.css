@@ -1,75 +1,236 @@
 body {
-	/*background-color: black;*/
-	background-image: url(https://i.pinimg.com/originals/67/fb/27/67fb27d6a41ac8fcad82a2f20c4c2db6.jpg);
-	background-position: top center;
-	background-attachment: scroll;
-	color: white;
+	background-color: #101018;
+	color: #C1C3CD;
 }
+
+/*используемые цвета:
+	background-color: #010101;	//цвет шапки
+	color: #C5D0E6;	//цвет ссылок в шапке
+	border-color: #181820;	//цвет рамок
+
+*/
+
+/*--------------------------------------------------------- шапка ---------------------------------------------------------*/
 
 header {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	height: 70px;
+	height: 50px;
 	width: 100%;
-	background-color: rgba(1, 1, 1, 0.9);
-	box-shadow: 0px 0px 15px 15px black;
+	background-color: rgb(1, 1, 1);
 	padding: 0;
 	font-family: Oswald;
 	letter-spacing: 1px;
-
-	/*border: solid 1px red;*/
+	border-bottom: solid 1px #181820;
 }
 
-header h2 {
-	text-transform: uppercase;
-	/*border: solid 1px red;*/
-}
+header h2 {	text-transform: uppercase; }
 
-header > nav {
+header nav {
 	display: flex;
 	justify-content: space-between;
-	width: 40%;
-	vertical-align: middle;
-	/*border: solid 1px red;*/
+	align-items: center;
 	padding: 0;
 }
 
-header a {
+a {
 	color: #C5D0E6;
 	text-decoration: none;
-	/*border: solid 1px red;*/
 }
 
-header > nav > a {
+.nav_a {
 	border: hidden;
 	border-radius: 10px;
 	padding: 5px 30px;
+	transition: 0.3s;
+	text-align: center;
+	margin-left: 5px;
 }
 
-header > nav > a:hover {
-	transition: 0.2s;
-	background-color: rgb(20, 20, 120);
-}
+.nav_a:hover { background-color: rgb(20, 20, 120); }
+
+/*--------------------------------------------------------- наполнение ---------------------------------------------------------*/
 
 .content-container {
-	width: 1000px;
-	height: 2000px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	max-width: 1000px;
+	min-height: calc(100vh - 50px - 50px - 20px - 2px);
 	margin-left: auto;
 	margin-right: auto;
-	padding: 0;
-	background-color: rgba(3, 3, 7, 0.7);
-	box-shadow: 0px 20px 15px 10px rgb(3, 3, 7);
+	padding: 0 0 20px 0;
+	background-color: rgb(3, 3, 7);
+	box-shadow: 0px 0px 15px 0px rgb(3, 3, 7);
 }
 
 h1 {
-	margin-left: 23%;
-	margin-right: 23%;
-	padding-top: 15px;
+	margin-left: 15%;
+	margin-right: 15%;
+	padding: 15px 0;
 	line-height: 1;
-	font-family: Oswald;
-	font-size: 100px;
+	font-family: sans-serid,Oswald;
+	font-size: 70px;
 	text-transform: uppercase;
 	letter-spacing: 12px;
-	/*border: solid 1px red;*/
+}
+
+.sourses {
+	width: calc(100% - 20px);
+	padding: 20px 10px 0;
+}
+.sourses:before {
+	content: "Источники: ";
+	font-weight: bold;
+}
+.article_text {
+	width: calc(100% - 20px);
+	padding: 10px 10px;
+} .article_text:before { content: "	"; }
+
+.article_img {
+	align-self: center;
+	padding: 10px;
+	max-width: 800px;
+}
+
+/*------------------------------------------ модель СС ------------------------------------------*/
+#SS_model {margin-left: 5%;}
+circle { 
+	position: absolute;
+	transition: 0.5s;
+}
+circle:hover {
+	filter: drop-shadow(0 0 5px #B4B4F4);
+}
+
+/*------------------------------------------ плитки со ссылками на статьи ------------------------------------------*/
+.article_item {
+	display: flex;
+	width: 90%;
+	height: 150px;
+	margin: 10px auto;
+	padding: 10px;
+	outline: solid 1px #030307;
+	transition: 0.5s;
+}
+.article_item:hover { outline: solid 1px #181820; }
+.article_item_text { width: 75%; }
+/*.article_item_h { font-size: 3vh; }*/
+.article_item_descrip {
+	display: flex;
+	height: calc(100% - 50px);
+	align-items: center;
+	color: #a5adb7;
+}
+.article_item_imgs {
+	width: 25%;
+	height: 100% - 20px;
+	padding: 10px 10px 15px;
+}
+.article_item_img {
+	max-width: 195px;
+	max-height: 100px;
+	margin: 0 auto;
+}
+.chooser {
+	width: 40%;
+	height: 30px;
+	padding: 5px 30%;
+	margin: 0 auto;
+}
+.choosing_one { cursor: pointer; }
+.choosing_one:hover { filter: drop-shadow(0 0 1px #B4B4F4); }
+
+/*------------------------------------------ наполнение статейных страниц ------------------------------------------*/
+.important { 
+	margin: 20px 20px;
+	padding: 20px;
+	border-radius: 10px;
+	color: #a5adb7;
+	background: linear-gradient(90deg, #141478, #030307 100%);
+}
+
+/*--------------------------------------------------------- подвал ---------------------------------------------------------*/
+
+footer {
+	display: flex;
+	height: 50px;
+	width: 100%;
+	background-color: rgb(1, 1, 1);
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	font-family: sans-serif;
+	border-top: solid 1px #181820;
+}
+.foot_p {
+	text-align: center;
+	color: #DDD6CF;
+	font-size: 14px;
+}
+
+/*---------------------------------------------------------- для планшетов ----------------------------------------------------------*/
+@media screen and (max-width: 1020px) {
+	.content-container {
+		max-width: unset;
+		width: 100%;
+		box-shadow: none;
+	}
+}
+/*---------------------------------------------------------- для телефонов ----------------------------------------------------------*/
+@media screen and (max-width: 750px) {
+	header {
+		display: inline-flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		height: 162px;
+		width: 100%;
+		background-color: rgb(1, 1, 1);
+		font-family: Oswald;
+		border-bottom: solid 1px #181820;
+	}
+	header nav {
+		width: 100%;
+		display: inline-flex;
+		flex-direction: column;
+		padding: 0;
+	}
+	.nav_a {
+		width: calc(100% - 6px);
+		border: hidden;
+		padding: 3px 0px;
+		border-radius: 0;
+		text-align: center;
+		border-top: solid 1px #181820;
+	} .nav_a:hover { background-color: #010101; }
+	header h2 { font-size: 20px; }
+	h1 {
+		padding-top: 20px;
+		font-size: 40px;
+		letter-spacing: 3px;
+	}
+	#SS_model { display: none; }
+	.article_item {
+		height: unset;
+		flex-direction: column;
+		width: calc(100% - 20px);
+		padding: 5px;
+		background-color: #09090D;
+		outline: none;
+	} .article_item:hover { outline: none; }
+	.article_item_text { width: 100%; }
+	.article_item_h {
+		font-size: 18px;
+		padding: 8px 0;
+	}
+	.article_item_imgs {
+		width: calc(100% - 30px);
+		height: 120px;
+	}
+	.important { margin: 10px; padding: 13px; }
+	.choosing_one:hover { filter: none; }
+	.article_img { width: calc(100% - 20px); }
 }
