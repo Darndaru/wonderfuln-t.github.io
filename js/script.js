@@ -1,24 +1,28 @@
-'use strict';
+showFirst();
 
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function currentSlide(n) {
-    showSlides(slideIndex = n);
+function currentSlide(n, k) {
+    showSlides(slideIndex = n + (k - 1) * 2);
 }
 
-function showSlides(n) {
-	let slides = document.getElementByClassName("article_item_img");
+function showFirst() {
+    let slides = document.getElementsByClassName("article_item_img");
+    for (let slide of slides) {
+            slide.style.display = "none";
+        }
+    slides[0].style.display = "block";
+    slides[2].style.display = "block"; 
+    slides[4].style.display = "block";
+}
 
-	if (slides.length < n) {
-		slideIndex = 1
-	}
-	if (n < 1) {
-		slideIndex = slides.length
-	}
+function showSlides(n, k) {
+    let slides = document.getElementsByClassName("article_item_img");
+    let slideIndex = n;
 
-	for (let slide of slides) {
-		slide.style.display = "none";
-	}
-	slides[slideIndex - 1].style.display = "block";
+    if (slideIndex % 2 == 1) {
+        slides[slideIndex].style.display = "none";
+    } else {
+        slides[slideIndex - 2].style.display = "none";
+    }
+
+    slides[slideIndex - 1].style.display = "block";
 }

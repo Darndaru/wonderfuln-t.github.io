@@ -3,13 +3,6 @@ body {
 	color: #C1C3CD;
 }
 
-/*используемые цвета:
-	background-color: #010101;	//цвет шапки
-	color: #C5D0E6;	//цвет ссылок в шапке
-	border-color: #181820;	//цвет рамок
-
-*/
-
 /*--------------------------------------------------------- шапка ---------------------------------------------------------*/
 
 header {
@@ -50,7 +43,7 @@ a {
 
 .nav_a:hover { background-color: rgb(20, 20, 120); }
 
-/*--------------------------------------------------------- наполнение ---------------------------------------------------------*/
+/*--------------------------------- наполнение ---------------------------------------------------------*/
 
 .content-container {
 	display: flex;
@@ -76,30 +69,42 @@ h1 {
 	letter-spacing: 12px;
 }
 
+.sourse { padding: 20px 10px 0; }
+.sourse:before {
+	content: "Источник: ";
+	font-weight: bold;
+}
 .sourses {
-	width: calc(100% - 20px);
+	display: flex;
+	flex-direction: column;
 	padding: 20px 10px 0;
+	width: calc(100% - 20px);
+}
+.sourses_a {
+	margin-left: 100px;
 }
 .sourses:before {
 	content: "Источники: ";
 	font-weight: bold;
 }
-.article_text {
-	width: calc(100% - 20px);
-	padding: 10px 10px;
-} .article_text:before { content: "	"; }
+.article_text { padding: 10px 10px; }
+.article_img_desc {
+	text-align: center;
+	margin: -5px auto 10px;
+}
 
 .article_img {
 	align-self: center;
 	padding: 10px;
 	max-width: 800px;
+	max-height: 50vh;
 }
 
 /*------------------------------------------ модель СС ------------------------------------------*/
 #SS_model {margin-left: 5%;}
 circle { 
 	position: absolute;
-	transition: 0.5s;
+	transition: 0.3s;
 }
 circle:hover {
 	filter: drop-shadow(0 0 5px #B4B4F4);
@@ -141,7 +146,7 @@ circle:hover {
 	margin: 0 auto;
 }
 .choosing_one { cursor: pointer; }
-.choosing_one:hover { filter: drop-shadow(0 0 1px #B4B4F4); }
+.choosing_one:hover { filter: drop-shadow(0 0 2px #B4B4F4); }
 
 /*------------------------------------------ наполнение статейных страниц ------------------------------------------*/
 .important { 
@@ -155,20 +160,15 @@ circle:hover {
 /*--------------------------------------------------------- подвал ---------------------------------------------------------*/
 
 footer {
-	display: flex;
-	height: 50px;
-	width: 100%;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+	font-size: 14px;
 	background-color: rgb(1, 1, 1);
-	justify-content: center;
-	align-items: center;
-	padding: 0;
+	color: #DDD6CF;
+	padding: 14px;
 	font-family: sans-serif;
 	border-top: solid 1px #181820;
-}
-.foot_p {
-	text-align: center;
-	color: #DDD6CF;
-	font-size: 14px;
 }
 
 /*---------------------------------------------------------- для планшетов ----------------------------------------------------------*/
@@ -178,6 +178,7 @@ footer {
 		width: 100%;
 		box-shadow: none;
 	}
+	#SS_model {margin: 0;}
 }
 /*---------------------------------------------------------- для телефонов ----------------------------------------------------------*/
 @media screen and (max-width: 750px) {
@@ -232,5 +233,6 @@ footer {
 	}
 	.important { margin: 10px; padding: 13px; }
 	.choosing_one:hover { filter: none; }
-	.article_img { width: calc(100% - 20px); }
+	.article_img { max-width: calc(100% - 20px); }
+	.sourses_a { margin-left: 0; }
 }
